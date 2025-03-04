@@ -1,0 +1,242 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f0f2f5, #d3dce6);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Login Container */
+.login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    animation: slideInUp 1s ease forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Wave Effect (Optional) */
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+    animation: wave 4s infinite ease-in-out;
+}
+
+.login-container::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+    animation: wave 5s infinite ease-in-out;
+}
+
+/* Login Box */
+.login-box {
+    text-align: center;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Header */
+h2 {
+    margin-bottom: 30px;
+    color: #333333;
+    position: relative;
+    animation: fadeInDown 1s ease forwards;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #007BFF;
+    animation: growWidth 1s ease forwards;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Input Groups */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 8px;
+    animation: fadeInUp 1s ease forwards;
+    transition: background-color 0.3s ease;
+}
+
+.input-group:hover {
+    background-color: #e0e0e0;
+}
+
+/* Icons Inside Input Fields */
+.input-group i {
+    margin-right: 10px;
+    color: #007BFF;
+    font-size: 1.2rem;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333333;
+    transition: transform 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    transform: scale(1.02);
+}
+
+/* OTP Group (Email Field) */
+.otp-group {
+    justify-content: flex-start;
+}
+
+/* Submit Button */
+.submit-button {
+    padding: 15px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    margin-top: 15px;
+}
+
+.forgot-password a {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Keyframe Animations */
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade In Down */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Grow Width */
+@keyframes growWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 60px;
+    }
+}
+
+/* Slide In Up */
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Wave Animation */
+@keyframes wave {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(-10px, -10px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}

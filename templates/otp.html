@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+OTP | Page
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/otp.css">
+{% endblock css %}
+
+{% block content %}
+<div class="otp-container">
+    <div class="otp-box">
+        <h2>Verify Your Account</h2>
+        <p>Please enter the OTP sent to your registered email or phone number.</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="otp-input-group">
+                <input type="text" id="otp" name="otp" maxlength="6" placeholder="Enter OTP" required>
+            </div>
+            <button type="submit" class="submit-button">Verify</button>
+        </form>
+        <div class="resend-otp">
+            <p>Didn't receive the code? <a href="#">Resend OTP</a></p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
