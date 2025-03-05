@@ -8,4 +8,5 @@ urlpatterns = [
     path('otp/', otp, name='otp'),
     path('user_logout/', user_logout, name='user_logout'),
     path('profile/', profile, name='profile'),
+    path('createbudget/', createbudget, name='createbudget'),
 ]

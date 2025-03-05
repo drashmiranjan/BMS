@@ -12,3 +12,9 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = '__all__'
         exclude = ['username']
+        
+class BudgetForm(forms.ModelForm):
+    class Meta:
+        model = Budget
+        fields = '__all__'
+        exclude = ['username', 'slno']

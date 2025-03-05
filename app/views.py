@@ -106,4 +106,19 @@ def profile(request):
         d = {'UO':UO , 'PO':PO}
         return render(request,'profile.html',d)
     return HttpResponseRedirect(reverse('user_login'))
+
+def createbudget(request):
+    un = request.session.get('username')
+    if un:
+        EBO = BudgetForm()
+        d = {'EBO':EBO}
+        if request.method == 'POST':
+            UO = User.objects.get(username=un)
+            BFO = BudgetForm(request.POST)
+            MBFO = BFO.save(commit=False)
+            MBFO.username = UO
+            MBFO.save()
+            return HttpResponseRedirect(reverse('home'))
+        return render(request,'createbudget.html',d)
+    return HttpResponseRedirect(reverse('user_login'))
     
