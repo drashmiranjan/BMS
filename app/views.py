@@ -97,4 +97,13 @@ def otp(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
+
+def profile(request):
+    un = request.session.get('username')
+    if un:
+        UO = User.objects.get(username = un)
+        PO = Profile.objects.get(username = UO)
+        d = {'UO':UO , 'PO':PO}
+        return render(request,'profile.html',d)
+    return HttpResponseRedirect(reverse('user_login'))
     

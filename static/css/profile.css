@@ -1,0 +1,193 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #bbdefb);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Profile Container */
+.profile-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    animation: slideInUp 1s ease forwards;
+}
+
+/* Profile Card */
+.profile-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Profile Header */
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px auto;
+    border: 4px solid #007BFF;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    animation: rotateProfilePhoto 4s infinite ease-in-out;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-header h2 {
+    color: #333333;
+    font-size: 1.5rem;
+    animation: fadeInDown 1s ease forwards;
+}
+
+/* Profile Details */
+.profile-details {
+    margin-bottom: 30px;
+}
+
+.detail-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.detail-group i {
+    margin-right: 15px;
+    color: #007BFF;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.detail-group i:hover {
+    transform: scale(1.2);
+}
+
+.detail-group span {
+    color: #555555;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.detail-group span:hover {
+    color: #007BFF;
+}
+
+/* Profile Actions */
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-button, .logout-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.edit-button {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.edit-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.logout-button {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Keyframe Animations */
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade In Down */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Rotate Profile Photo */
+@keyframes rotateProfilePhoto {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Slide In Up */
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

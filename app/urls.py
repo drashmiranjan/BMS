@@ -7,4 +7,5 @@ urlpatterns = [
     path('user_login/', user_login, name='user_login'),
     path('otp/', otp, name='otp'),
     path('user_logout/', user_logout, name='user_logout'),
+    path('profile/', profile, name='profile'),
 ]
