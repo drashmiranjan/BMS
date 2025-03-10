@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+Update | block
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/updatebudget.css">
+{% endblock css %}
+
+{% block content %}
+<h1>Update your Budget</h1>
+<form method="POST">
+    {% csrf_token %}
+    
+    <label>Title:</label>
+    <input type="text" name="title" value="{{ Bobj.title }}" required><br>
+
+    <label>Description:</label>
+    <textarea name="desc" required>{{ Bobj.desc }}</textarea><br>
+    
+    <label>Amount:</label>
+    <input type="number" name="amount" value="{{ Bobj.amount }}" required><br>
+
+    <button type="submit">Update</button>
+</form>
+
+{% endblock content %}
+

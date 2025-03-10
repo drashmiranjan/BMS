@@ -8,13 +8,11 @@
 /* Body Styling */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-    color: #333333;
-    min-height: 100vh;
+    background: linear-gradient(135deg, #e0f7fa, #bbdefb);
+    height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
     animation: fadeIn 1s ease forwards;
     position: relative;
     overflow: hidden;
@@ -43,6 +41,19 @@ body::after {
     animation-delay: 3s;
 }
 
+/* Container */
+.update-container {
+    background-color: #ffffff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    animation: slideInUp 1s ease forwards;
+    position: relative;
+    z-index: 1;
+}
+
 /* Header */
 h1 {
     text-align: center;
@@ -64,91 +75,65 @@ h1::after {
     animation: growWidth 1s ease forwards;
 }
 
-/* Table Styling */
-.table {
-    width: 100%;
-    max-width: 800px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     animation: fadeInUp 1s ease forwards;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.table:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555555;
+    font-size: 1rem;
+    animation: fadeInDown 1s ease forwards;
 }
 
-/* Table Header */
-.table thead {
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    transform: scale(1.02);
+}
+
+/* Submit Button */
+button[type="submit"] {
+    padding: 15px;
     background-color: #007BFF;
     color: #ffffff;
-}
-
-.table th,
-.table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #dddddd;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.table th:first-child,
-.table td:first-child {
-    padding-left: 20px;
-}
-
-.table th:last-child,
-.table td:last-child {
-    padding-right: 20px;
-}
-
-/* Table Rows */
-.table tbody tr {
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.table tbody tr:hover {
-    background-color: #f1f1f1;
-}
-
-/* Action Buttons */
-.table td:last-child {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-}
-
-.btn {
-    padding: 8px 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
-    color: #ffffff;
+    animation: fadeInUp 1s ease forwards;
 }
 
-.btn-update {
-    background-color: #28a745;
-}
-
-.btn-update:hover {
-    background-color: #218838;
-    transform: translateY(-1px);
-}
-
-.btn-delete {
-    background-color: #dc3545;
-}
-
-.btn-delete:hover {
-    background-color: #c82333;
-    transform: translateY(-1px);
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 /* Keyframe Animations */
@@ -194,6 +179,18 @@ h1::after {
     }
     to {
         width: 60px;
+    }
+}
+
+/* Slide In Up */
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 

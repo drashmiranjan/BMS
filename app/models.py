@@ -15,7 +15,7 @@ class Budget(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='budget')
     title = models.CharField(max_length=50)
     desc = models.TextField()
-    money = models.IntegerField()
+    amount = models.IntegerField()
     
     def __str__(self):
         return self.title

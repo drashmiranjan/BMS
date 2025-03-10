@@ -7,6 +7,11 @@ from django.contrib.auth import authenticate,login,logout
 import random
 # Create your views here.
 def home(request):
+    un = request.session.get('username')
+    if un:
+        all_budget = Budget.objects.all()
+        d = {'all_budget':all_budget}
+        return render(request,'home.html',d)
     return render(request,'home.html')
 
 def register(request):
@@ -122,3 +127,22 @@ def createbudget(request):
         return render(request,'createbudget.html',d)
     return HttpResponseRedirect(reverse('user_login'))
     
+def updatebudget(request, pk):
+    Bobj = Budget.objects.get(pk=pk)
+    d = {'Bobj':Bobj}
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        desc = request.POST.get('desc')
+        amount = request.POST.get('amount')
+        
+        Bobj.title = title
+        Bobj.desc = desc
+        Bobj.amount = amount
+        Bobj.save()
+        return HttpResponseRedirect(reverse('home'))
+    return render(request,'updatebudget.html',d)
+
+def deletebudget(request, pk):
+    BOBJ = Budget.objects.get(pk=pk)
+    BOBJ.delete()
+    return HttpResponseRedirect(reverse('home'))
